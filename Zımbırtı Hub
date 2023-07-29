@@ -1,0 +1,158 @@
+-- Zımbırtı Hub
+
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+
+local Window = Rayfield:CreateWindow({
+    Name = "ZımbırtıHub",
+    LoadingTitle = "Loading...",
+    LoadingSubtitle = "by xNotter",
+    ConfigurationSaving = {
+       Enabled = true,
+       FolderName = nil, -- Create a custom folder for your hub/game
+       FileName = "Zımbırtı Hub"
+    },
+    Discord = {
+       Enabled = true,
+       Invite = "https://discord.gg/7Nt8TCYAMq", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+    },
+    KeySystem = true, -- Set this to true to use our key system
+    KeySettings = {
+       Title = "ZımbırtıHub",
+       Subtitle = "Key Sistem",
+       Note = "Zımbırtı | Hub",
+       FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+       Key = {"Zımbırtı"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+    }
+ })
+ Rayfield:Notify({
+   Title = "ZımbırtıHub",
+   Content = "Zımbırtı | Hub",
+   Duration = 6.5,
+   Image = 4483362458,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+            Process.Start("https://discord.gg/DtFbG6Ms")
+      end
+   },
+},
+})
+Rayfield:Notify({
+   Title = "ZımbırtıHub",
+   Content = "Made By xNotter#4278",
+   Duration = 6.5,
+   Image = 4483362458,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("Okay!")
+      end
+   },
+},
+})
+ local MainTab = Window:CreateTab("Main", 4483362458) -- Title, Image
+ local ScriptsTab = Window:CreateTab("Game Scripts", 4483362458) -- Title, Image
+ local CreditsTab = Window:CreateTab("Credits", 4483362458) -- Title, Image
+ local Section = CreditsTab:CreateSection("Credits")
+ local Section = ScriptsTab:CreateSection("Scripts")
+ local Section = MainTab:CreateSection("Main")
+ 
+ local Toggle = MainTab:CreateToggle({
+   Name = "AimBot",
+   CurrentValue = false,
+   Flag = "aim", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/Notter31/Aimbot/main/aimbt"))()
+   end,
+})
+local Toggle = MainTab:CreateToggle({
+   Name = "ESP",
+   CurrentValue = false,
+   Flag = "esp", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/ESP-Script/main/ESP.lua"))()
+   end,
+})
+
+ local Slider = MainTab:CreateSlider({
+   Name = "WalkSpeed",
+   Range = {5, 400},
+   Increment = 10,
+   Suffix = "WS",
+   CurrentValue = 10,
+   Flag = "ws", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+      game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+   end,
+})
+local Slider = MainTab:CreateSlider({
+   Name = "JumpPower",
+   Range = {5, 300},
+   Increment = 10,
+   Suffix = "WS",
+   CurrentValue = 10,
+   Flag = "Jp", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+      game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+   end,
+})
+ local Script = ScriptsTab:CreateButton({
+   Name = "İnfinite Yield",
+   Callback = function()
+      loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+   end,
+})
+local Script = ScriptsTab:CreateButton({
+   Name = "Ninja Legends",
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/TrixAde/Proxima-Hub/main/Main.lua"))()
+   end,
+})
+local Script = ScriptsTab:CreateButton({
+   Name = "Murder Mystery 2",
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/KidichiHB/Kidachi/main/Scripts/MM2_V2"))()
+   end,
+})
+local Script = ScriptsTab:CreateButton({
+   Name = "Arsenal",
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/DreadzHub2/DreadzHub-Scripts-FR/main/Loader"))()
+   end,
+})
+local Script = ScriptsTab:CreateButton({
+   Name = "PrisonLife",
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/GwnStefano/NexusHub/main/Main", true))()
+   end,
+})
+local Script = ScriptsTab:CreateButton({
+   Name = "Kat",
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/AndrewDarkyy/NOWAY/main/darkyyware.lua"))()
+   end,
+})
+local Script = ScriptsTab:CreateButton({
+   Name = "YEET A PET! 🔥 (Pet Simulator X)",
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/NukeVsCity/TheALLHACKLoader/main/NukeLoader"))()
+   end,
+})
+local Script = ScriptsTab:CreateButton({
+   Name = "Bee Swarm Simulator",
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/DreadzHub2/DreadzHub-Scripts-FR/main/Loader"))()
+   end,
+})
+local Label = CreditsTab:CreateLabel("ZımbırtıHub")
+local Label = CreditsTab:CreateLabel("Discord: https://discord.gg/7Nt8TCYAMq")
+local Label = CreditsTab:CreateLabel("YT Channel: Zımbırtı Hub")
+local Label = CreditsTab:CreateLabel("Made by xNotter")
+
+Rayfield:LoadConfiguration()
